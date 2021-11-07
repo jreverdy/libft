@@ -9,11 +9,8 @@ typedef struct s_var
 
 int	is_charset(char const *str, char charset)
 {
-	while (charset)
-	{
 		if (*str == charset)
 			return (1);
-	}
 	return (0);
 }
 
@@ -85,4 +82,18 @@ char	**ft_split(char const *s, char c)
 	}
 	tab[var.i] = 0;
 	return ((char *)tab);
+}
+
+int main()
+{
+	char **tab;
+	int i = 0;
+
+	tab = ft_split(",bonjour,les,loulous,comment,allez,vous,", ",");
+	while (tab[i])
+	{
+		printf("line %d: %s\n", i, tab[i]);
+		i++;
+	}
+	return 0;
 }
