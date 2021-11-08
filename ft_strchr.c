@@ -3,17 +3,26 @@
 char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
+	size_t	j;
 
 	i = 0;
-	if (!s)
-		return (NULL);
-	if (c == 0)
-		return ((char *)s);
+	j = 0;
 	while (s[i])
 	{
 		if (s[i] == (char)c)
 			return ((char *)s + i);
 		i++;
 	}
+	if (c == 0)
+		return ((char *)s + i);
 	return (0);
 }
+
+//int main()
+//{
+//	char *src = "there is so \0ma\0ny \0 \\0 in t\0his stri\0ng !\0\0\0\0";
+//	char *d1 = strchr(src, '\0');
+//	char *d2 = ft_strchr(src, '\0');
+//	printf("strchr = %s\n", d1);
+//	printf("ft_strchr = %s\n", d2);
+//}

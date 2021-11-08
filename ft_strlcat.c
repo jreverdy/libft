@@ -5,8 +5,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	unsigned int	free_space;
 	char			*ptr_dst;
 
-	if (src == NULL || dst == NULL)
-		return (0);
 	free_space = size;
 	ptr_dst = dst;
 	while (*ptr_dst && free_space != 0)
