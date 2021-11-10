@@ -1,16 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jereverd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/09 11:32:56 by jereverd          #+#    #+#             */
+/*   Updated: 2021/11/09 11:32:57 by jereverd         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*temporary;
-	temporary = malloc(sizeof)(t_list);
-	if (!temporary)
+	t_list	*new_list;
+
+	new_list = ft_calloc(1, sizeof(t_list));
+	if (!new_list)
 		return (NULL);
-	temporary->content = content;
-	temporary->next = NULL;
-}
-
-int	main(void)
-{
-
+	new_list->content = content;
+	new_list->next = NULL;
+	return (new_list);
 }

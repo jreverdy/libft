@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jereverd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/09 11:31:17 by jereverd          #+#    #+#             */
+/*   Updated: 2021/11/09 11:31:26 by jereverd         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
- static long ft_checker(long result, long neg)
+static long	ft_checker(long result, long neg)
 {
 	if (result > 2147483648 || result < -2147483649)
 	{
@@ -14,8 +26,8 @@
 
 int	ft_atoi(const char *str)
 {
-	long 	i;
-	long 	nb;
+	long	i;
+	long	nb;
 	long	neg;
 
 	i = 0;

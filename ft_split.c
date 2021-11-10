@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jereverd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/09 11:34:37 by jereverd          #+#    #+#             */
+/*   Updated: 2021/11/10 15:29:27 by jereverd         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 typedef struct s_var
@@ -9,8 +21,8 @@ typedef struct s_var
 
 int	is_charset(char const *str, char charset)
 {
-		if (*str == charset)
-			return (1);
+	if (*str == charset)
+		return (1);
 	return (0);
 }
 
@@ -57,8 +69,8 @@ char	*skip_charsets(char const *str, char charset)
 
 char	**ft_split(char const *s, char c)
 {
-	char const	**tab;
-	t_var		var;
+	char	**tab;
+	t_var	var;
 
 	if (!s)
 		return (NULL);
@@ -81,19 +93,19 @@ char	**ft_split(char const *s, char c)
 		s = skip_charsets(s, c);
 	}
 	tab[var.i] = 0;
-	return ((char *)tab);
+	return (tab);
 }
 
-int main()
-{
-	char **tab;
-	int i = 0;
-
-	tab = ft_split(",bonjour,les,loulous,comment,allez,vous,", ",");
-	while (tab[i])
-	{
-		printf("line %d: %s\n", i, tab[i]);
-		i++;
-	}
-	return 0;
-}
+//int main()
+//{
+//	char **tab;
+//	int i = 0;
+//
+//	tab = ft_split("bonjour\0les,loulous,comment,allez,vous,", '\0');
+//	while (tab[i])
+//	{
+//		printf("line %d: %s\n", i, tab[i]);
+//		i++;
+//	}
+//	return 0;
+//}

@@ -1,53 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jereverd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/09 11:35:34 by jereverd          #+#    #+#             */
+/*   Updated: 2021/11/09 11:35:36 by jereverd         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t len)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-//	size_t	i;
-//	size_t	j;
-//	size_t	k;
-//
-//	i = -1;
-//	k = 0;
-//	if (!s2)
-//		return ((char *)s1);
-//	while (s1[++i] && i < len)
-//	{
-//		if (s1[i] == s2[k])
-//		{
-//			j = i - 1;
-//			while (s1[++j] && s2[k] && s1[j] == s2[k])
-//			{
-//				k++;
-//				if (s2[k] == '\0')
-//					return ((char *)(s1 + i));
-//			}
-//		}
-//		k = -1;
-//	}
-//	return (0);
-
 	size_t	i;
 	size_t	j;
 	size_t	k;
 
 	i = 0;
 	k = 0;
-	if (!s2)
-		return ((char *)s1);
-	while (s1[i])
+	if (to_find[i] == '\0')
+		return ((char *)str);
+	while (str[i])
 	{
-		if (s1[i] == s2[k])
+		if (str[i] == to_find[k] && i < len)
 		{
 			j = i;
-			while (s1[j] && s2[k] && s1[j] == s2[k] && k < len)
+			while (str[j] && to_find[k] && str[j] == to_find[k] && j < len)
 			{
-				k++;
 				j++;
-				if (s2[k] == '\0')
-					return ((char *)(s1 + i));
+				k++;
+				if (to_find[k] == '\0')
+					return ((char *)str + i);
 			}
-			k = 0;
 		}
+		k = 0;
 		i++;
 	}
 	return (0);
@@ -56,6 +44,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 //#include <string.h>
 //int main(void)
 //{
-//	printf("ft:%s\n", ft_strnstr("allo bonjour", "bonjour", 7));
-//	printf("%s\n", strnstr("allo bonjour", "bonjour", 7));
+//	printf("ft:%s\n", ft_strnstr("Bonjour", "njo", 4));
+//	printf("ft:%s\n", strnstr("Bonjour", "njo", 4));
+//	//printf("%s\n", strnstr("allo bonjour", "bon", ));
 //}
