@@ -12,32 +12,20 @@
 
 #include "libft.h"
 
-typedef struct s_var
-{
-	int	i;
-	int	j;
-	int	len;
-}t_var;
-
-int	is_charset(char const *str, char charset)
-{
-	if (*str == charset)
-		return (1);
-	return (0);
-}
-
-int	count_word(char const *str, char charset)
+static int	count_word(char const *str, char charset)
 {
 	int	count;
 
 	count = 0;
-	while (is_charset(str, charset) == 1)
+	if (!*str)
+		return (0);
+	while (*str == charset)
 		str++;
 	while (*str)
 	{
-		if (is_charset(str, charset) == 1)
+		if (*str == charset)
 		{
-			while (is_charset(str, charset) == 1)
+			while (*str == charset)
 				str++;
 			if (*str != '\0')
 				count++;
@@ -48,64 +36,84 @@ int	count_word(char const *str, char charset)
 	return (count + 1);
 }
 
-int	wordlen(char const*str, char charset)
+static int	wordlen(char const*str, char charset)
 {
 	int	i;
 
 	i = 0;
-	while (is_charset(str, charset) == 1)
+	while (*str == charset)
 		str++;
-	while (str[i] && is_charset(str + i, charset) == 0)
+	while (str[i] && str[i] != charset)
 		i++;
 	return (i);
 }
 
 char	*skip_charsets(char const *str, char charset)
 {
-	while (is_charset(str, charset) > 0)
+	while (*str == charset)
 		str++;
 	return ((char *)str);
+}
+
+static int	early_check(char const *s, char c, char ***tab)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+	{
+		*tab = NULL;
+		return (1);
+	}
+	if (!c)
+	{
+		*tab = ft_calloc(2, 8);
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i])
+			*tab[0] = ft_strdup(s);
+		else
+			*tab[0] = NULL;
+		return (1);
+	}
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
-	t_var	var;
+	size_t	i;
+	size_t	j;
+	size_t	len;
 
-	if (!s)
-		return (NULL);
-	var.i = 0;
-	tab = malloc(sizeof(*tab) * (count_word(s, c) + 1));
+	if (early_check(s, c, &tab))
+		return (tab);
+	i = 0;
+	tab = ft_calloc((count_word(s, c) + 1), sizeof(char *));
 	if (!tab)
 		return (NULL);
 	s = skip_charsets(s, c);
 	while (*s)
 	{
-		tab[var.i] = malloc(sizeof(char) * (wordlen(s, c) + 1));
-		if (!(tab[var.i]))
+		j = 0;
+		tab[i] = ft_calloc((wordlen(s, c) + 1), sizeof(char));
+		if (!(tab[i]))
 			return (NULL);
-		var.len = wordlen(s, c);
-		var.j = 0;
-		while (var.j < var.len)
-			tab[var.i][var.j++] = *(s++);
-		tab[var.i][var.j] = '\0';
-		var.i++;
+		len = wordlen(s, c);
+		while (j < len)
+			tab[i][j++] = *(s++);
 		s = skip_charsets(s, c);
+		i++;
 	}
-	tab[var.i] = 0;
 	return (tab);
 }
 
+//
 //int main()
 //{
 //	char **tab;
 //	int i = 0;
 //
-//	tab = ft_split("bonjour\0les,loulous,comment,allez,vous,", '\0');
-//	while (tab[i])
-//	{
-//		printf("line %d: %s\n", i, tab[i]);
-//		i++;
-//	}
+//	!strcmp(tab[0], "tripouille");
 //	return 0;
 //}

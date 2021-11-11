@@ -14,6 +14,7 @@ SRCS =	ft_atoi.c			\
 		ft_isascii.c		\
 		ft_isdigit.c		\
 		ft_isprint.c		\
+		ft_itoa.c			\
 		ft_lstadd_back.c	\
 		ft_lstadd_front.c	\
 		ft_lstclear.c		\
@@ -69,8 +70,6 @@ clean :
 fclean : clean
 		rm -f $(NAME)
 
-re :
-	$(MAKE) fclean
-	$(MAKE) all
+re : fclean all
 
 .PHONY : all clean fclean re

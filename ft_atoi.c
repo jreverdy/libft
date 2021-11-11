@@ -14,9 +14,9 @@
 
 static long	ft_checker(long result, long neg)
 {
-	if (result > 2147483648 || result < -2147483649)
+	if (result > 2147483648 || result < -2147483648)
 	{
-		if (neg == 1 > 0)
+		if (neg == 1)
 			return (-1);
 		else
 			return (0);
@@ -48,3 +48,12 @@ int	ft_atoi(const char *str)
 	}
 	return (ft_checker(nb, neg));
 }
+
+//#include <string.h>
+//#include <stdio.h>
+//
+//int	main(void)
+//{
+//	printf("%d\n", ft_atoi("-9999999999999999999"));
+//	printf("%d\n", atoi("-9999999999999999999"));
+//}
