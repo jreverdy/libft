@@ -12,20 +12,30 @@
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *str, char const *set)
 {
-	char	*str_trimmed
+	char	*str_trimmed;
 	int		start;
-	int		len;
+	int		end;
+	int 	len_of_str_trimmed;
 
 	start = 0;
-	while (ft_strchr(set, s1[start]))
+	if (!str || !set)
+		return (NULL);
+	while (str[start] && (ft_strchr(set, str[start]) != NULL))
 		start++;
-	len = ft_strlen(s1);
-	if (start == len)
+	end = ft_strlen(str);
+	if (start == end)
 	{
-
+		str_trimmed = ft_calloc(1, sizeof(char));
+		if (!str_trimmed)
+			return (NULL);
 	}
+	while (end && ft_strrchr(set, str[end]))
+		end--;
+	len_of_str_trimmed = (end - start);
+	str = ft_substr(str, start,len_of_str_trimmed);
+	return (str_trimmed);
 }
 
 //typedef	struct	s_var
@@ -121,9 +131,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 //
 //	}
 //
-
-}
-
 
 //int is_set (char c, char const *set)
 //{

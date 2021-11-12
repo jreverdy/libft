@@ -10,6 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include "libft.h"
+//
+//char	*ft_substr(char const *s, unsigned int start, size_t len)
+//{
+//	char			*sub_str;
+//	unsigned int	i;
+//
+//	if (!s)
+//		return (NULL);
+//	if (ft_strlen((char *)s) <= start)
+//		return (ft_calloc(1, sizeof(char)));
+//	if (ft_strlen(s) < len)
+//		sub_str = ft_strdup(&s[start]);
+//	else
+//	{
+//		sub_str = ft_calloc(len + 1, sizeof(char));
+//		if (!sub_str)
+//			return (NULL);
+//		i = 0;
+//		while (i < len)
+//		{
+//			sub_str[i] = s[start];
+//			start++;
+//			i++;
+//		}
+//	}
+//	return (sub_str);
+//}
+
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -19,21 +48,25 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*sub_str;
 
 	j = 0;
-	len_of_s = ft_strlen(s);
+	len_of_s = ft_strlen((char *)s);
 	if (!s)
 		return (NULL);
 	if (start >= len_of_s)
 		return (ft_calloc(1, sizeof(char)));
-	if (ft_strlen(&s[start]) < len)
+	if (len > len_of_s)
 		return (ft_strdup(&s[start]));
-	sub_str = ft_calloc(len + 1, sizeof(char));
-	if (!sub_str)
-		return (NULL);
-	while (j < len)
+
+	else
 	{
-		sub_str[j] = s[start];
-		j++;
-		start++;
+		sub_str = ft_calloc(len + 1, sizeof(char));
+		if (!sub_str)
+			return (NULL);
+		while (j < len)
+		{
+			sub_str[j] = s[start];
+			j++;
+			start++;
+		}
 	}
 	return (sub_str);
 }

@@ -48,7 +48,7 @@ static int	wordlen(char const*str, char charset)
 	return (i);
 }
 
-char	*skip_charsets(char const *str, char charset)
+static char	*skip_charsets(char const *str, char charset)
 {
 	while (*str == charset)
 		str++;

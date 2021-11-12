@@ -19,7 +19,7 @@ char	*ft_fill_str(char *str, int nb, int size)
 	return (str);
 }
 
-int ft_count_numbers(int nb)
+static int ft_count_numbers(int nb)
 {
 	size_t		i;
 	long int	nbr;
@@ -52,6 +52,8 @@ char	*ft_itoa(int n)
 	}
 	size = ft_count_numbers(n);
 	str = ft_calloc((size + 1), sizeof(char));
+	if (!str)
+		return (NULL);
 	str = ft_fill_str(str, n, size);
 	return (str);
 }
