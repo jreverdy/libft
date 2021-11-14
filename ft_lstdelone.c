@@ -21,39 +21,3 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 	(*del)(lst->content);
 	free(lst);
 }
-
-//#include <stdio.h>
-//
-//void clear(void *content)
-//{
-//	(void)content;
-//}
-//
-//int	main(void)
-//{
-//	t_list *liste;
-//	t_list *temp;
-//
-//	liste = ft_calloc(10, sizeof(t_list));
-//	temp = liste;
-//	ft_lstadd_back(&liste, ft_lstnew("str"));
-//	ft_lstadd_back(&liste, ft_lstnew("abc"));
-//	ft_lstadd_back(&liste, ft_lstnew("oui"));
-//	while (liste)
-//	{
-//		printf("%s\n", (char *)liste->content);
-//		if (liste->content && !ft_strncmp("abc", liste->content, 3))
-//		{
-//			printf("?\n");
-//			ft_lstdelone(liste, clear);
-//			break ;
-//		}
-//		liste = liste->next;
-//	}
-//	printf("done\n");
-//	while (temp)
-//	{
-//		printf("%s\n", (char *)temp->content);
-//		temp = temp->next;
-//	}
-//}

@@ -27,15 +27,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcat(joined_str, s2, len);
 	return (joined_str);
 }
-
-//#include <stdio.h>
-//
-//int main()
-//{
-//	char str[10] = "bisous";
-//	char str2[12] = "les loulous";
-//	char *joined_str;
-//	printf("chaine avant ft_strjoin = %s & %s\n", str, str2);
-//	joined_str = ft_strjoin(str, str2);
-//	printf("chaine apres ft_strjoin = %s\n", joined_str);
-//}

@@ -107,13 +107,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (tab);
 }
-
-//
-//int main()
-//{
-//	char **tab;
-//	int i = 0;
-//
-//	!strcmp(tab[0], "tripouille");
-//	return 0;
-//}

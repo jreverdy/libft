@@ -12,18 +12,6 @@
 
 #include "libft.h"
 
-static long	ft_checker(long result, long neg)
-{
-	if (result > 2147483648 || result < -2147483648)
-	{
-		if (neg == 1)
-			return (-1);
-		else
-			return (0);
-	}
-	return (result * neg);
-}
-
 int	ft_atoi(const char *str)
 {
 	long	i;
@@ -46,14 +34,5 @@ int	ft_atoi(const char *str)
 		nb = nb * 10 + (str[i] - 48);
 		i++;
 	}
-	return (ft_checker(nb, neg));
+	return (nb * neg);
 }
-
-//#include <string.h>
-//#include <stdio.h>
-//
-//int	main(void)
-//{
-//	printf("%d\n", ft_atoi("-9999999999999999999"));
-//	printf("%d\n", atoi("-9999999999999999999"));
-//}

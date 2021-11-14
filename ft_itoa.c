@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jereverd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/14 15:41:17 by jereverd          #+#    #+#             */
+/*   Updated: 2021/11/14 15:41:21 by jereverd         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_fill_str(char *str, int nb, int size)
+static char	*ft_fill_str(char *str, int nb, int size)
 {
 	long int	nbr;
 
@@ -8,7 +20,7 @@ char	*ft_fill_str(char *str, int nb, int size)
 	if (nbr < 0)
 	{
 		str[0] = '-';
-		nbr *= - 1;
+		nbr *= -1;
 	}
 	while (nbr)
 	{
@@ -19,7 +31,7 @@ char	*ft_fill_str(char *str, int nb, int size)
 	return (str);
 }
 
-static int ft_count_numbers(int nb)
+static int	ft_count_numbers(int nb)
 {
 	size_t		i;
 	long int	nbr;
@@ -57,11 +69,3 @@ char	*ft_itoa(int n)
 	str = ft_fill_str(str, n, size);
 	return (str);
 }
-//
-//#include <stdio.h>
-//
-//int main(void)
-//{
-//	printf("%s\n", ft_itoa(-123456));
-//	return (0);
-//}

@@ -66,7 +66,7 @@ $(NAME)	: $(OBJS)
 		$(CC) $(CFLAGS) -c -o $@ $<
 
 clean :
-		rm $(OBJS)
+		rm  $(OBJS)
 
 fclean : clean
 		rm -f $(NAME)

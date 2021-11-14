@@ -29,12 +29,3 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s + i);
 	return (0);
 }
-
-//int main()
-//{
-//	char *src = "there is so \0ma\0ny \0 \\0 in t\0his stri\0ng !\0\0\0\0";
-//	char *d1 = strchr(src, '\0');
-//	char *d2 = ft_strchr(src, '\0');
-//	printf("strchr = %s\n", d1);
-//	printf("ft_strchr = %s\n", d2);
-//}
