@@ -19,24 +19,21 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*sub_str;
 
 	j = 0;
-	len_of_s = ft_strlen((char *)s);
 	if (!s)
 		return (NULL);
+	len_of_s = ft_strlen((char *)s);
 	if (start >= len_of_s)
 		return (ft_calloc(1, sizeof(char)));
 	if (len > len_of_s)
 		return (ft_strdup(&s[start]));
-	else
+	sub_str = ft_calloc(len + 1, sizeof(char));
+	if (!sub_str)
+		return (NULL);
+	while (j < len)
 	{
-		sub_str = ft_calloc(len + 1, sizeof(char));
-		if (!sub_str)
-			return (NULL);
-		while (j < len)
-		{
-			sub_str[j] = s[start];
-			j++;
-			start++;
-		}
+		sub_str[j] = s[start];
+		j++;
+		start++;
 	}
 	return (sub_str);
 }

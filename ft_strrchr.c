@@ -27,12 +27,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (0);
 }
-//
-//#include <stdio.h>
-//
-//int main()
-//{
-//	const char str[50] = "bisous les lou42lous";
-//	int c = 'b';
-//	printf("%s\n", ft_strrchr(str, c));
-//}
