@@ -55,6 +55,8 @@ OBJS = $(SRCS:.c=.o)
 
 NAME = libft.a
 
+RM = rm -f
+
 all : $(NAME)
 
 bonus : all
@@ -66,10 +68,10 @@ $(NAME)	: $(OBJS)
 		$(CC) $(CFLAGS) -c -o $@ $<
 
 clean :
-		rm  $(OBJS)
+		$(RM) $(OBJS)
 
 fclean : clean
-		rm -f $(NAME)
+		$(RM) $(NAME)
 
 re : fclean all
 

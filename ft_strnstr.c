@@ -40,11 +40,3 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 	}
 	return (0);
 }
-
-//#include <string.h>
-//int main(void)
-//{
-//	printf("ft:%s\n", ft_strnstr("Bonjour", "njo", 4));
-//	printf("ft:%s\n", strnstr("Bonjour", "njo", 4));
-//	//printf("%s\n", strnstr("allo bonjour", "bon", ));
-//}
